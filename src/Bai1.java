@@ -72,14 +72,12 @@ public class Bai1 {
         System.out.println("Nhập vào vị trí cần thêm đi");
         d = scanner.nextInt();
         int[] e = new int[mang.length + 1];
-        for (int i=0; i< e.length; i++) {
-            if (i<d) {
-                e[i] = mang[i];
-            }
+        for (int i=0; i< d; i++) {
+            e[i] = mang[i];
             e[d] = b;
-            if (i>d) {
-                e[i] = mang[i-1];
-            }
+        }
+        for (int i=d; i< mang.length + 1; i++) {
+            e[i] = mang[i-1];
         }
         System.out.println("Mảng mới sẽ là:");
         for (int i=0; i<e.length; i++) {
