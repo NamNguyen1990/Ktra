@@ -41,31 +41,48 @@ public class Bai1 {
         System.out.println("Tổng chẵn là:" + t);
 
 
-        System.out.println("Nhập a nào đi");
+        System.out.println("Nhập số cần tìm vào đi");
         a = scanner.nextInt();
         int pos = tim(mang, a);
         if (pos == -1) {
             System.out.println("Không tìm thấy");
         }
         else {
-            System.out.println("Vị trí a trong mảng là" + pos);
+            System.out.println("Vị trí số đã nhập trong mảng là:" + pos);
         }
 
-        System.out.println("Nhập b vào đi");
+        System.out.println("Nhập vào số cần xóa:");
+        int soCanXoa = scanner.nextInt();
+        int viTriXoa = tim(mang, soCanXoa);
+        int[] mangMoi = new int[mang.length - 1];
+        for (int i=0; i<viTriXoa; i++) {
+            mangMoi[i] = mang[i];
+        }
+        for (int i=viTriXoa; i<mang.length -1; i++) {
+            mangMoi[i] = mang[i+1];
+        }
+        mang = mangMoi;
+        System.out.println("Mảng mới sau khi xóa sẽ là:");
+        for (int i=0; i<mang.length; i++) {
+            System.out.print(mang[i] + "\t");
+        }
+
+        System.out.println("\n Nhập số muốn thêm vào đi");
         b = scanner.nextInt();
         System.out.println("Nhập vào vị trí cần thêm đi");
         d = scanner.nextInt();
-        int[] e = new int[d];
-        for (int i=0; i< e.length - 1; i++) {
-            if (i<d-1) {
+        int[] e = new int[mang.length + 1];
+        for (int i=0; i< e.length; i++) {
+            if (i<d) {
                 e[i] = mang[i];
             }
-            e[d-1] = b;
-            if (i>d-1) {
+            e[d] = b;
+            if (i>d) {
                 e[i] = mang[i-1];
             }
         }
-       for (int i=0; i<d; i++) {
+        System.out.println("Mảng mới sẽ là:");
+        for (int i=0; i<e.length; i++) {
            System.out.println(e[i] + "");
        }
     }
